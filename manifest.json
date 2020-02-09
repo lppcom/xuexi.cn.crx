@@ -1,0 +1,49 @@
+{
+  "manifest_version": 2,
+  "name": "学习强国自动任务",
+  "version": "1.0.0",
+  "description": "简单的Chrome扩展demo",
+  "icons":
+  {
+    "16": "img/icon.png",
+    "48": "img/icon.png",
+    "128": "img/icon.png"
+  },
+  "background":
+  {
+    "page": "background/index.html"
+  },
+  "browser_action":
+  {
+    "default_icon": "img/icon.png",
+    "default_title": "学习强国自动任务",
+    "default_popup": "popup/index.html"
+  },
+  "content_scripts":
+  [
+    {
+      "matches": ["<all_urls>", "*://www.xuexi.cn/*"],
+      "js": ["js/content-script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions":
+  [
+    "contextMenus",
+    "tabs",
+    "notifications",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "web_accessible_resources": ["*"],
+  "homepage_url": "https://www.twesix.cn",
+  "options_ui":
+  {
+    "page": "options/index.html",
+    "chrome_style": true
+  },
+  "devtools_page": "devtools/index.html"
+}
